@@ -7,6 +7,7 @@
 	{{!-- Page Meta --}}
 	<title>{{meta_title}}</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<link rel="shortcut icon" href="{{asset "images/faviconMM.png"}}">
 
 	{{!-- Styles --}}
 	<link href="//fonts.googleapis.com/css?family=Droid+Serif:400,400italic,700,700italic%7CMontserrat:400,700" rel="stylesheet" type="text/css" />
@@ -32,8 +33,10 @@
 		{{> header}}
 		{{!-- Everything else gets inserted here --}}
 		{{{body}}}
-		{{!-- The tag below includes the theme header - partials/sidebar.hbs --}}
-		{{> sidebar}}
+		{{#if false}}
+			{{!-- The tag below includes the theme header - partials/sidebar.hbs --}}
+			{{> sidebar}}
+		{{/if}}
 		{{!-- The tag below includes the theme footer widget area - partials/footer-widgets.hbs --}}
 		{{! > footer-widgets --}}
 		{{!-- The tag below includes the theme footer - partials/footer.hbs --}}
@@ -42,11 +45,29 @@
 	</div><!-- #page -->
 
 	<script type="text/javascript" src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.6/moment.min.js"></script>
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.6/locale/fr.js"></script>
+	<script type="text/javascript">
+	$(document).ready(function () {
+	  moment.locale('fr');
+
+	  $('.post-date, .published, .nav-date').each(function (i, date) {
+	    var $date = $(date);
+	        
+	    $date.html(
+	      moment($date.attr('datetime'))
+	        .format('LL')
+	    );
+	  });
+	});
+	</script>
+
 	{{!-- Ghost outputs important scripts and data with this tag --}}
 	{{ghost_foot}}
 
 	{{!-- JavaScript files --}}
 	<script type="text/javascript" src="{{asset "js/plugins.js"}}"></script>
 	<script type="text/javascript" src="{{asset "js/custom.js"}}"></script>
+
 </body>
 </html>
