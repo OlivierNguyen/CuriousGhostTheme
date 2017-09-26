@@ -1086,6 +1086,7 @@ input[type="button"].square {
 	padding: 0 10px;
 	color: #000;
 	font-weight: 500;
+    font-family: Arial;
 }
 
 .menu-goto:hover {
@@ -1100,7 +1101,7 @@ input[type="button"].square {
 	border: 1px solid #fff;
 	font-size: 14px;
 	line-height: 30px;
-	width: 165px;
+	width: 225px;
 	margin: auto;
 	margin-top: 20px;
 	right: 80px;
@@ -1109,6 +1110,7 @@ input[type="button"].square {
 	padding: 0 10px;
 	color: #fff;
 	font-weight: 500;
+	font-family: Arial;
 }
 
 .menu-goto-footer:hover {
@@ -1263,13 +1265,11 @@ input[type="button"].square {
 	color: #fff;
 }
 
-.tag-template .post-title a,
 .author-template .post-title a {
-	color: #111;
+	color: #fff;
 }
 
 .post-title a:hover,
-.tag-template .post-title a:hover,
 .author-template .post-title a:hover {
 	border-color: $color-accent;
 }
@@ -1282,9 +1282,9 @@ input[type="button"].square {
 }
 
 .post-tags a {
-	background-color: $color-accent;
+	background-color: #111;
 	border: 2px solid transparent;
-	color: #111;
+	color: $color-accent;
 	display: inline-block;
 	margin-bottom: 5px;
 	margin-right: 5px;
@@ -1297,7 +1297,6 @@ input[type="button"].square {
 	color: #fff;
 }
 
-.tag-template .post-tags a:hover,
 .author-template .post-tags a:hover {
 	background-color: transparent;
 	border-color: #111;
@@ -1328,19 +1327,16 @@ input[type="button"].square {
 	color: #fff;
 }
 
-.tag-template .post-meta a,
 .author-template .post-meta a {
-	color: #666;
+	color: $color-accent;
 }
 
-.tag-template .post-meta a:hover,
 .author-template .post-meta a:hover {
 	border-color: $color-accent;
 	color: #111;
 }
 
-.author-template .post-content,
-.tag-template .post-content {
+.author-template .post-content{
 	font-size: 16px;
 }
 
@@ -1446,8 +1442,7 @@ input[type="button"].square {
 	margin-left: -30px;
 }
 
-.author-template .post-grid,
-.tag-template .post-grid {
+.author-template .post-grid{
 	margin-left: 0;
 }
 
@@ -1461,31 +1456,30 @@ input[type="button"].square {
 }
 
 .grid-item,
+.tag-template .grid-item:nth-child(3n+1),
 .home-template .grid-item:nth-child(3n+1) {
 	height: 450px;
 	width: 50%;
 }
 
 .grid-item:nth-child(3n+1),
+.tag-template .grid-item:nth-child(3n+3),
 .home-template .grid-item:nth-child(3n+3) {
 	height: 600px;
 	width: 100%;
 }
 
-.author-template .grid-item,
-.tag-template .grid-item {
+.author-template .grid-item{
 	padding-left: 60px;
 	padding-right: 60px;
 	width: 50%;
 }
 
-.author-template .post-grid .grid-item,
-.tag-template .post-grid .grid-item {
+.author-template .post-grid .grid-item{
 	height: auto;
 }
 
-.author-template .grid-item:nth-child(2n+1),
-.tag-template .grid-item:nth-child(2n+1) {
+.author-template .grid-item:nth-child(2n+1){
 	clear: left;
 }
 
@@ -1509,11 +1503,14 @@ input[type="button"].square {
 }
 
 .grid-item:nth-child(3n+1) .post-inside .post-title,
+.tag-template .grid-item:nth-child(3n+3) .post-title,
 .home-template .grid-item:nth-child(3n+3) .post-title {
 	font-size: 40px;
 	max-width: 80%;
 }
 
+
+.tag-template .grid-item:nth-child(3n+1) .post-title,
 .home-template .grid-item:nth-child(3n+1) .post-title {
 	font-size: 28px;
 	max-width: none;
@@ -2220,6 +2217,7 @@ input[type="button"].square {
 @media only screen and (min-width: 1401px) {
 	h1,
 	.grid-item:nth-child(3n+1) .post-inside .post-title,
+	.tag-template .grid-item:nth-child(3n+3) .post-title,
 	.home-template .grid-item:nth-child(3n+3) .post-title,
 	.page-title,
 	.post-template .post-title,
@@ -2228,6 +2226,7 @@ input[type="button"].square {
 	}
 
 	h2,
+	.tag-template .grid-item:nth-child(3n+1) .post-title,
 	.home-template .grid-item:nth-child(3n+1) .post-title {
 		font-size: 36px;
 	}
@@ -2328,7 +2327,6 @@ input[type="button"].square {
 	blockquote small,
 	blockquote cite,
 	.author-template .post-content,
-	.tag-template .post-content,
 	.comments-title,
 	.widget-area .screen-reader-text,
 	.widget-title,
@@ -2337,17 +2335,19 @@ input[type="button"].square {
 	}
 
 	.grid-item,
+	.tag-template .grid-item:nth-child(3n+1),
 	.home-template .grid-item:nth-child(3n+1),
 	.cover.page-header {
 		height: 500px;
 	}
 
 	.grid-item:nth-child(3n+1),
+	.tag-template .grid-item:nth-child(3n+3),
 	.home-template .grid-item:nth-child(3n+3),
 	.cover.hero,
 	.slider-loading,
 	.featured-slider .slick-slide {
-		height: 800px;
+		height: 400px;
 	}
 
 	.cover .scroll-down {
@@ -2391,13 +2391,11 @@ input[type="button"].square {
 }
 
 @media only screen and (max-width: 1200px) {
-	.author-template .post-grid,
-	.tag-template .post-grid {
+	.author-template .post-grid{
 		margin-left: -30px;
 	}
 
-	.author-template .grid-item,
-	.tag-template .grid-item {
+	.author-template .grid-item{
 		padding-left: 30px;
 		padding-right: 0;
 	}
@@ -2418,16 +2416,19 @@ input[type="button"].square {
 
 @media only screen and (max-width: 960px) {
 	.grid-item,
+	.tag-template .grid-item:nth-child(3n+1),
 	.home-template .grid-item:nth-child(3n+1) {
 		width: 100%;
 	}
 
 	.grid-item:nth-child(3n+1),
+	.tag-template .grid-item:nth-child(3n+3),
 	.home-template .grid-item:nth-child(3n+3) {
 		height: 450px;
 	}
 
 	.grid-item:nth-child(3n+1) .post-inside .post-title,
+	.tag-template .grid-item:nth-child(3n+3) .post-title,
 	.home-template .grid-item:nth-child(3n+3) .post-title {
 		font-size: 28px;
 		max-width: none;
@@ -2536,8 +2537,7 @@ input[type="button"].square {
 }
 
 @media only screen and (max-width: 800px) {
-	.author-template .grid-item,
-	.tag-template .grid-item {
+	.author-template .grid-item{
 		width: 100%;
 	}
 
@@ -2680,6 +2680,7 @@ input[type="button"].square {
 	.site-title,
 	.post-title,
 	.grid-item:nth-child(3n+1) .post-inside .post-title,
+	.tag-template .grid-item:nth-child(3n+3) .post-title,
 	.home-template .grid-item:nth-child(3n+3) .post-title,
 	.slide-vertical .post-title {
 		font-size: 24px;
@@ -2710,14 +2711,12 @@ input[type="button"].square {
 	}
 
 	.post-grid,
-	.author-template .post-grid,
-	.tag-template .post-grid {
+	.author-template .post-grid{
 		margin-left: -15px;
 	}
 
 	.grid-item,
-	.author-template .grid-item,
-	.tag-template .grid-item {
+	.author-template .grid-item{
 		margin-bottom: 15px;
 		padding-left: 15px;
 	}
@@ -2733,6 +2732,8 @@ input[type="button"].square {
 
 	.grid-item,
 	.grid-item:nth-child(3n+1),
+	.tag-template .grid-item:nth-child(3n+1),
+	.tag-template .grid-item:nth-child(3n+3),
 	.home-template .grid-item:nth-child(3n+1),
 	.home-template .grid-item:nth-child(3n+3),
 	.cover.hero,
